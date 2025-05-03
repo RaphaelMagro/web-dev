@@ -1,39 +1,47 @@
 import Link from "next/link";
+import { SideBar } from "./_components/sidebar";
+import { TopNav } from "./_components/topnav";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <Link href={"/about"}>Click Here</Link>
-
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
-        </div>
-      </div>
-    </main>
+    <div>
+      <SideBar />
+      <main className="mt-10 ml-90 p-6 pt-60">
+        <h1 className="text-3xl font-bold">Main Content Area</h1>
+        <p className="text-3xl">
+          This is your dashboard content below the navbar and next to the
+          sidebar. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Repellat blanditiis harum iusto, sunt quidem incidunt corporis in
+          provident impedit, unde, veniam fugit. Quo libero odit fuga voluptatem
+          at deserunt praesentium, atque nesciunt voluptates vitae ea. Nostrum
+          quod, praesentium aspernatur maxime exercitationem nesciunt laborum
+          corrupti eos tempora adipisci provident totam quisquam. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. Tenetur maiores deleniti
+          alias accusantium reiciendis sint, facere sequi quis! Error ipsa
+          facere, voluptatum distinctio minima repellendus minus deserunt, iste
+          porro blanditiis cupiditate aliquid ullam reiciendis sint ipsum magni
+          earum. Inventore error corporis sequi consequatur nulla natus et
+          veritatis, nobis deleniti non quo alias qui recusandae necessitatibus
+          porro illum adipisci laborum ex accusantium sapiente officia rem.
+          Cupiditate, deleniti veritatis natus ad repudiandae veniam. Modi
+          inventore architecto voluptas earum culpa distinctio adipisci quod,
+          sapiente soluta et aspernatur corrupti dolores consequuntur veniam,
+          sint maiores unde explicabo ipsum? Dicta a, fugiat enim vitae aperiam
+          cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
+          nobis iste facilis esse fugiat error corrupti fugit architecto
+          perferendis omnis reprehenderit quas nihil, obcaecati ratione eius
+          quasi beatae corporis. Commodi ut nesciunt expedita at, debitis
+          laboriosam esse voluptatum, nisi recusandae amet numquam sit! Aut
+          obcaecati, ullam eum neque quibusdam, fugit suscipit tenetur ea nihil
+          hic debitis natus laboriosam dolore. Ut, quibusdam neque? Quo impedit
+          beatae, quibusdam perspiciatis iste dicta nemo qui architecto. Quas
+          modi nisi corrupti repudiandae blanditiis voluptatibus doloribus
+          repellat illum rerum perferendis? Minima a aliquam dolorem deleniti
+          ratione sed. Explicabo ea quam exercitationem? Dolores est molestias
+          architecto harum.
+        </p>
+        <Link href={"/request"}>Click Here</Link>
+      </main>
+    </div>
   );
 }
