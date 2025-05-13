@@ -25,28 +25,18 @@ export default function HomePage() {
         <h2 className="mb-8 text-center text-3xl font-bold text-amber-600">
           Dashboard Overview
         </h2>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           <div className="rounded-lg bg-gray-100 p-6 shadow-md">
             <h3 className="text-xl font-semibold text-gray-700">
-              Total Residents
+              Pending Request
             </h3>
-            <p className="mt-4 text-3xl font-bold text-amber-600">1,250</p>
-          </div>
-          <div className="rounded-lg bg-gray-100 p-6 shadow-md">
-            <h3 className="text-xl font-semibold text-gray-700">
-              Pending Requests
-            </h3>
-            <p className="mt-4 text-3xl font-bold text-amber-600">32</p>
+            <p className="mt-4 text-3xl font-bold text-amber-600">3</p>
           </div>
           <div className="rounded-lg bg-gray-100 p-6 shadow-md">
             <h3 className="text-xl font-semibold text-gray-700">
               Uploaded Documents
             </h3>
-            <p className="mt-4 text-3xl font-bold text-amber-600">215</p>
-          </div>
-          <div className="rounded-lg bg-gray-100 p-6 shadow-md">
-            <h3 className="text-xl font-semibold text-gray-700">Total Staff</h3>
-            <p className="mt-4 text-3xl font-bold text-amber-600">10</p>
+            <p className="mt-4 text-3xl font-bold text-amber-600">6</p>
           </div>
         </div>
       </section>
@@ -103,7 +93,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="right-0 left-0 mt-20 w-full bg-gray-900 p-6 text-center text-sm text-white">
+      <footer className="mt-20 w-full bg-gray-900 p-6 text-center text-sm text-white">
         © 2025 Barangay San Agustin - Admin Portal. All rights reserved.
       </footer>
     </main>

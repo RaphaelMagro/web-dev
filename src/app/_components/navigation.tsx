@@ -10,7 +10,8 @@ export function Navigation() {
     pathname !== "/" &&
     !pathname.startsWith("/dashboard") &&
     !pathname.startsWith("/request") &&
-    !pathname.startsWith("/documents");
+    !pathname.startsWith("/documents") &&
+    !pathname.startsWith("/admin");
 
   const showFooter =
     pathname !== "/" &&
@@ -20,7 +21,8 @@ export function Navigation() {
     !pathname.startsWith("/homepage") &&
     !pathname.startsWith("/announcements") &&
     !pathname.startsWith("/contact") &&
-    !pathname.startsWith("/inquiry");
+    !pathname.startsWith("/inquiry") &&
+    !pathname.startsWith("/admin");
 
   return (
     <>
