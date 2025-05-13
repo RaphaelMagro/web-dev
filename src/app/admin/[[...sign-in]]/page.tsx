@@ -44,6 +44,8 @@ export default function AdminPage() {
             </h2>
             <div className="flex w-full justify-center">
               <SignIn 
+                routing="path"
+                path="/admin/sign-in"
                 redirectUrl="/dashboard"
                 appearance={{
                   elements: {
@@ -78,4 +80,4 @@ export default function AdminPage() {
       </div>
     </div>
   );
-}
+} 

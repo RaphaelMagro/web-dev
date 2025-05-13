@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
 
 export default function HomePage() {
   return (
@@ -12,11 +13,11 @@ export default function HomePage() {
           />
           <h1 className="text-xl font-bold">Barangay San Agustin - Admin</h1>
         </div>
-        <div className="flex gap-6">
+        <div className="flex items-center gap-6">
           <Link href={"/dashboard"}>Dashboard</Link>
           <Link href={"/request"}>Requests</Link>
           <Link href={"/documents"}>Documents</Link>
-          <button className="text-red-500 hover:text-red-300">Logout</button>
+          <UserButton afterSignOutUrl="/admin" />
         </div>
       </nav>
 
