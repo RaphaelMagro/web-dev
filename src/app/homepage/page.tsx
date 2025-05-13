@@ -28,7 +28,6 @@ export default function HomePage() {
             accessibility of public services, and neighborhood organization are
             key features of Barangay San Agustin.
           </p>
-          <h1>dana karagul ni koko grabe</h1>
         </div>
 
         {/* Barangay Officials Section */}

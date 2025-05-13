@@ -13,65 +13,47 @@ export default function RequestPage() {
           <h1 className="text-xl font-bold">Barangay San Agustin - Admin</h1>
         </div>
         <div className="flex gap-6">
-          <Link href={"/dashboard"}>Dashboard</Link>
-          <Link href={"/request"}>Requests</Link>
-          <Link href={"/documents"}>Documents</Link>
+          <Link href="/dashboard">Dashboard</Link>
+          <Link href="/request">Requests</Link>
+          <Link href="/documents">Documents</Link>
           <button className="text-red-500 hover:text-red-300">Logout</button>
         </div>
       </nav>
-      {/* Pending Requests Section */}
-      <section className="mb-10">
+
+      {/* Incoming Requests Section */}
+      <section className="mt-20 mb-10">
         <h2 className="mb-6 text-center text-3xl font-bold text-amber-600">
-          Pending Requests
+          📥 Incoming Requests
         </h2>
-        <div className="mx-auto w-full max-w-xl rounded-lg bg-gray-100 p-10 shadow-md">
-          <div className="rounded-lg bg-amber-100 p-6 shadow-md">
-            <h3 className="text-xl font-semibold text-gray-800">
-              Total Pending Requests
-            </h3>
-            <p className="mt-4 text-4xl font-bold text-amber-700">0</p>
-            <p className="text-gray-600">No pending requests at the moment.</p>
-          </div>
+        <div className="mx-auto h-80 w-full max-w-5xl rounded-lg bg-gray-100 p-8 shadow-md">
+          <p className="text-gray-600">📭 No requests received yet.</p>
+          <p className="text-gray-600">
+            Once a resident submits a request, it will appear here.
+          </p>
         </div>
       </section>
 
-      {/* New Request Form Section */}
+      {/* Search and Filter Section */}
       <section className="mb-10 rounded-lg bg-white p-6 shadow-md">
-        <h2 className="mb-4 text-2xl font-semibold text-gray-800">
-          📝 Submit a New Request
-        </h2>
-        <form>
+        <div className="flex flex-col gap-4 md:flex-row md:justify-between">
           <input
             type="text"
-            placeholder="Request Title"
-            className="mb-4 w-full rounded border p-2"
+            placeholder="🔍 Search by name/type"
+            className="w-full flex-grow rounded border p-3 md:w-auto"
           />
-          <textarea
-            placeholder="Description"
-            className="mb-4 w-full rounded border p-2"
-          ></textarea>
-          <select className="mb-4 w-full rounded border p-2">
-            <option value="">Select Request Type</option>
-            <option value="certificate">Barangay Certificate</option>
-            <option value="clearance">Barangay Clearance</option>
-            <option value="id">Barangay ID</option>
+          <select className="w-full rounded border p-3 md:w-auto">
+            <option value="">⬇ All</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
           </select>
-          <button
-            type="submit"
-            className="w-full rounded bg-amber-700 p-2 text-white"
-          >
-            Submit Request
-          </button>
-        </form>
+        </div>
       </section>
 
-      {/* Request History Section */}
-      <section className="mb-10 rounded-lg bg-white p-6 shadow-md">
-        <h2 className="mb-4 text-2xl font-semibold text-gray-800">
-          📂 Request History
-        </h2>
-        <p className="text-gray-600">No requests submitted yet.</p>
-      </section>
+      {/* Footer */}
+      <footer className="right-0 left-0 mt-20 w-full bg-gray-900 p-6 text-center text-sm text-white">
+        © 2025 Barangay San Agustin - Admin Portal. All rights reserved.
+      </footer>
     </main>
   );
 }

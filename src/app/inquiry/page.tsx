@@ -2,7 +2,7 @@ import Footer from "../_components/footer";
 
 export default function InquiryPage() {
   return (
-    <div className="flex-1 pt-32">
+    <div className="mt-20 flex-1 pt-32">
       <div className="mx-auto max-w-4xl px-4">
         {/* Title */}
         <h1 className="mb-8 flex items-center justify-center gap-2 text-3xl font-bold text-yellow-400">
@@ -22,7 +22,7 @@ export default function InquiryPage() {
         </div>
 
         {/* Form Container */}
-        <div className="rounded-lg bg-gray-200 p-8">
+        <div className="mb-20 rounded-lg bg-gray-200 p-8">
           <form className="space-y-6">
             <div className="grid gap-6 md:grid-cols-2">
               {/* Full Name */}
@@ -33,7 +33,7 @@ export default function InquiryPage() {
                 <input
                   type="text"
                   required
-                  className="mt-1 w-full rounded-md border p-2"
+                  className="mt-1 w-full rounded-md border bg-gray-100 p-2"
                 />
               </div>
 
@@ -45,7 +45,7 @@ export default function InquiryPage() {
                 <input
                   type="text"
                   required
-                  className="mt-1 w-full rounded-md border p-2"
+                  className="mt-1 w-full rounded-md border bg-gray-100 p-2"
                 />
               </div>
 
@@ -54,7 +54,7 @@ export default function InquiryPage() {
                 <label className="block font-semibold">
                   Document Type<span className="text-red-500">*</span>
                 </label>
-                <select className="mt-1 w-full rounded-md border p-2">
+                <select className="mt-1 w-full rounded-md border bg-gray-100 p-2">
                   <option value="">Select document type</option>
                   <option value="barangay_clearance">Barangay Clearance</option>
                   <option value="certificate_residency">
@@ -73,7 +73,7 @@ export default function InquiryPage() {
                 <input
                   type="tel"
                   required
-                  className="mt-1 w-full rounded-md border p-2"
+                  className="mt-1 w-full rounded-md border bg-gray-100 p-2"
                 />
               </div>
 
@@ -82,7 +82,7 @@ export default function InquiryPage() {
                 <label className="block font-semibold">Email (Optional)</label>
                 <input
                   type="email"
-                  className="mt-1 w-full rounded-md border p-2"
+                  className="mt-1 w-full rounded-md border bg-gray-100 p-2"
                 />
               </div>
 
@@ -114,7 +114,7 @@ export default function InquiryPage() {
               <textarea
                 required
                 rows={3}
-                className="mt-1 w-full rounded-md border p-2"
+                className="mt-1 w-full rounded-md border bg-gray-100 p-2"
               ></textarea>
             </div>
 

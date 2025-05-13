@@ -75,13 +75,29 @@ export default function HomePage() {
               className="mb-4 w-full rounded border p-3"
             />
             <textarea
-              placeholder="Description"
+              placeholder="Description (Optional)"
               className="mb-4 w-full rounded border p-3"
             ></textarea>
-            <input type="file" className="mb-4 w-full" />
-            <button className="w-full rounded bg-amber-600 py-3 font-semibold text-white hover:bg-amber-700">
-              Upload
-            </button>
+            <div className="mt-1 cursor-pointer rounded-md border-2 border-dashed border-gray-400 p-4 text-center">
+              <label htmlFor="file-upload" className="cursor-pointer">
+                <p>Upload Here</p>
+                <input
+                  id="file-upload"
+                  type="file"
+                  required
+                  className="hidden"
+                  accept="image/*,.pdf"
+                />
+              </label>
+            </div>
+            <div className="mt-10 flex justify-center">
+              <button
+                type="submit"
+                className="rounded-md bg-yellow-400 px-8 py-2 font-semibold text-black hover:bg-yellow-500"
+              >
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </section>
