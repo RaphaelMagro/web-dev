@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1747225838094,
+      "tag": "0000_sudden_molecule_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1747227552973,
+      "tag": "0001_dizzy_network",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1747228501597,
+      "tag": "0002_mature_molecule_man",
+      "breakpoints": true
+    }
+  ]
+}

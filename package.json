@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build",
     "check": "next lint && tsc --noEmit",
-    "db:generate": "drizzle-kit generate",
+    "db:generate": "drizzle-kit generate:pg",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
@@ -20,12 +20,13 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.19.2",
+    "@clerk/nextjs": "^6.19.3",
     "@radix-ui/react-slot": "^1.2.0",
     "@t3-oss/env-nextjs": "^0.12.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "drizzle-orm": "^0.41.0",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.43.1",
     "lucide-react": "^0.503.0",
     "next": "^15.2.3",
     "postgres": "^3.4.4",
@@ -40,7 +41,7 @@
     "@types/node": "^20.14.10",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "drizzle-kit": "^0.30.5",
+    "drizzle-kit": "^0.31.1",
     "eslint": "^9.23.0",
     "eslint-config-next": "^15.2.3",
     "eslint-plugin-drizzle": "^0.2.3",

@@ -43,37 +43,33 @@ export default function AdminPage() {
               Log In as Admin
             </h2>
             <div className="flex w-full justify-center">
-              <SignIn 
-                routing="path"
-                path="/admin/sign-in"
-                redirectUrl="/dashboard"
-                appearance={{
-                  elements: {
-                    formButtonPrimary: 
-                      "bg-yellow-400 hover:bg-yellow-500 text-black border border-black w-full mt-4 rounded-lg py-3 font-semibold transition-colors duration-200 shadow-md hover:shadow-lg",
-                    card: "bg-transparent shadow-none w-full",
-                    headerTitle: "hidden",
-                    headerSubtitle: "hidden",
-                    socialButtonsBlockButton: "hidden",
-                    dividerLine: "hidden",
-                    dividerText: "hidden",
-                    formFieldInput: 
-                      "bg-white text-black border-gray-300 w-full p-3 rounded-lg shadow-inner transition-all duration-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-400/50",
-                    formFieldLabel: 
-                      "text-black/80 mb-2 font-medium",
-                    footerActionLink: 
-                      "text-black/70 hover:text-yellow-700 transition-colors duration-200",
-                    rootBox: "w-full",
-                    formFieldInputShowPasswordButton: "text-black/70 hover:text-black transition-colors duration-200",
-                    footer: "w-full text-center mt-6",
-                    formField: "mb-4",
-                    form: "p-6 bg-white/95 rounded-xl shadow-inner"
-                  },
-                  layout: {
-                    showOptionalFields: false
-                  }
-                }}
-              />
+              <SignIn afterSignInUrl="/dashboard" appearance={{
+                elements: {
+                  formButtonPrimary: 
+                    "bg-yellow-400 hover:bg-yellow-500 text-black border border-black w-full mt-4 rounded-lg py-3 font-semibold transition-colors duration-200 shadow-md hover:shadow-lg",
+                  card: "bg-transparent shadow-none w-full",
+                  headerTitle: "hidden",
+                  headerSubtitle: "hidden",
+                  socialButtonsBlockButton: "hidden",
+                  dividerLine: "hidden",
+                  dividerText: "hidden",
+                  formFieldInput: 
+                    "bg-white text-black border-gray-300 w-full p-3 rounded-lg shadow-inner transition-all duration-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-400/50",
+                  formFieldLabel: 
+                    "text-black/80 mb-2 font-medium",
+                  footerActionLink: 
+                    "text-black/70 hover:text-yellow-700 transition-colors duration-200",
+                  rootBox: "w-full",
+                  formFieldInputShowPasswordButton: "text-black/70 hover:text-black transition-colors duration-200",
+                  footer: "w-full text-center mt-6",
+                  formField: "mb-4",
+                  form: "p-6 bg-white/95 rounded-xl shadow-inner"
+                },
+                layout: {
+                  showOptionalFields: false,
+                  socialButtonsPlacement: "bottom"
+                }
+              }} />
             </div>
           </div>
         </div>

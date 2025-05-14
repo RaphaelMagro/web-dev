@@ -1,28 +1,26 @@
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { clerkMiddleware } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-// Create a matcher for protected routes
-const isProtectedRoute = createRouteMatcher([
-  "/dashboard(.*)",
-  "/request(.*)",
-  "/documents(.*)"
-]);
+// This example protects all routes including api/trpc routes
+// Please edit this to allow other routes to be public as needed.
+// See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your middleware
 
-// Create a matcher for auth routes that should not be protected
-const isAuthRoute = createRouteMatcher([
-  "/admin/sign-in(.*)",
-  "/admin/sign-up(.*)"
-]);
-
-export default clerkMiddleware((auth, req) => {
-  if (isProtectedRoute(req)) {
-    auth.protect();
-  }
+export default clerkMiddleware(() => {
+  return NextResponse.next();
 });
 
+// Stop Middleware running on static files
 export const config = {
   matcher: [
-    "/((?!.*\\..*|_next).*)",
+    /*
+     * Match all request paths except for the ones starting with:
+     * - _next
+     * - static (static files)
+     * - favicon.ico (favicon file)
+     * - public folder
+     */
+    "/((?!static|.*\\..*|_next|favicon.ico).*)",
     "/",
-    "/(api|trpc)(.*)"
-  ]
+  ],
 }; 

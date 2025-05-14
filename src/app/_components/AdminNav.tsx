@@ -21,7 +21,7 @@ export default function AdminNav() {
           Dashboard
         </Link>
         <Link 
-          href="/request" 
+          href="/admin/requests" 
           className="hover:text-yellow-400 transition-colors"
         >
           Requests
