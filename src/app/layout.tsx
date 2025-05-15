@@ -4,6 +4,7 @@ import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Navigation } from "./_components/navigation";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -27,6 +28,7 @@ export default function RootLayout({
             <Navigation />
             <main className="flex-1">{children}</main>
           </div>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

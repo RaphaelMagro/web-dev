@@ -1,35 +1,142 @@
-import Link from "next/link";
+'use client';
 
-export default function NextPage() {
+import { useAuth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+import AdminNav from "~/app/_components/AdminNav";
+import { QuickUploadForm } from "~/app/_components/QuickUploadForm";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+
+// Types
+type Document = {
+  id: string;
+  documentType: string;
+  purpose: string | null;
+  fileData: string;
+  createdAt: Date;
+};
+
+export default function DocumentsPage() {
+  const { userId, isLoaded } = useAuth();
+  const [documents, setDocuments] = useState<Document[]>([]);
+  const [loading, setLoading] = useState(true);
+  
+  const fetchDocuments = async () => {
+    try {
+      const response = await fetch('/api/documents', {
+        headers: {
+          'Cache-Control': 'no-cache'
+        }
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch documents');
+      }
+      const data = await response.json();
+      setDocuments(data);
+    } catch (error) {
+      console.error('Failed to fetch documents:', error);
+      toast.error('Failed to fetch documents');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!isLoaded) return;
+    
+    if (!userId) {
+      redirect("/sign-in");
+    }
+
+    fetchDocuments();
+  }, [userId, isLoaded]);
+
+  const handleDelete = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this document?')) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/documents/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete document');
+      }
+
+      toast.success('Document deleted successfully');
+      fetchDocuments(); // Refresh the list
+    } catch (error) {
+      console.error('Error deleting document:', error);
+      toast.error('Failed to delete document');
+    }
+  };
+
+  const handleUploadSuccess = () => {
+    toast.success('Document uploaded successfully');
+    fetchDocuments(); // Refresh the document list
+  };
+
+  if (!isLoaded || loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <main className="mx-6 mt-30 md:mx-20 lg:mx-40">
-      <nav className="fixed top-0 right-0 left-0 z-50 mb-15 flex items-center justify-between bg-gray-900 p-4 text-white">
-        <div className="flex items-center gap-6">
-          <img
-            src="/SAN-AGUSTIN-removebg-preview.png"
-            alt="Logo"
-            className="h-12 w-12 rounded-full bg-white p-1"
-          />
-          <h1 className="text-xl font-bold">Barangay San Agustin - Admin</h1>
-        </div>
-        <div className="flex gap-6">
-          <Link href="/dashboard">Dashboard</Link>
-          <Link href="/request">Requests</Link>
-          <Link href="/documents">Documents</Link>
-          <button className="text-red-500 hover:text-red-300">Logout</button>
-        </div>
-      </nav>
+      <AdminNav />
 
-      {/* Incoming Requests Section */}
+      {/* Document List Section */}
       <section className="mt-20 mb-10">
         <h2 className="mb-6 text-center text-3xl font-bold text-amber-600">
           📂 Document List
         </h2>
-        <div className="mx-auto h-80 w-full max-w-5xl rounded-lg bg-gray-100 p-8 shadow-md">
-          <p className="text-gray-600">📄 No documents uploaded yet. </p>
-          <p className="text-gray-600">
-            Upload new files to make them available for residents.
-          </p>
+        <div className="mx-auto w-full max-w-5xl rounded-lg bg-gray-100 p-8 shadow-md">
+          {documents.length === 0 ? (
+            <>
+              <p className="text-gray-600">📄 No documents uploaded yet.</p>
+              <p className="text-gray-600">
+                Upload new files to make them available for residents.
+              </p>
+            </>
+          ) : (
+            <div className="divide-y divide-gray-200">
+              {documents.map((doc) => (
+                <div 
+                  key={doc.id} 
+                  className="flex items-center justify-between py-4 hover:bg-gray-50"
+                >
+                  <div>
+                    <h3 className="font-medium text-gray-900">
+                      {doc.documentType}
+                    </h3>
+                    {doc.purpose && (
+                      <p className="text-sm text-gray-600">{doc.purpose}</p>
+                    )}
+                    <p className="text-xs text-gray-500">
+                      Uploaded on {new Date(doc.createdAt).toLocaleDateString()}
+                    </p>
+                  </div>
+                  <div className="flex gap-2">
+                    <a
+                      href={doc.fileData}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-md bg-amber-100 px-4 py-2 text-sm font-medium text-amber-700 hover:bg-amber-200"
+                    >
+                      View Document
+                    </a>
+                    <button
+                      onClick={() => handleDelete(doc.id)}
+                      className="rounded-md bg-red-100 px-4 py-2 text-sm font-medium text-red-700 hover:bg-red-200"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -39,44 +146,9 @@ export default function NextPage() {
           Quick Upload
         </h2>
         <div className="mx-auto w-full max-w-xl rounded-lg bg-gray-100 p-6 shadow-md">
-          <form>
-            <input
-              type="text"
-              placeholder="Title"
-              className="mb-4 w-full rounded border p-3"
-            />
-            <textarea
-              placeholder="Description (Optional)"
-              className="mb-4 w-full rounded border p-3"
-            ></textarea>
-            <div className="mt-1 cursor-pointer rounded-md border-2 border-dashed border-gray-400 p-4 text-center">
-              <label htmlFor="file-upload" className="cursor-pointer">
-                <p>Upload Here</p>
-                <input
-                  id="file-upload"
-                  type="file"
-                  required
-                  className="hidden"
-                  accept="image/*,.pdf"
-                />
-              </label>
-            </div>
-            <div className="mt-10 flex justify-center">
-              <button
-                type="submit"
-                className="rounded-md bg-yellow-400 px-8 py-2 font-semibold text-black hover:bg-yellow-500"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+          <QuickUploadForm onUploadSuccess={handleUploadSuccess} />
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="right-0 left-0 mt-20 w-full bg-gray-900 p-6 text-center text-sm text-white">
-        © 2025 Barangay San Agustin - Admin Portal. All rights reserved.
-      </footer>
     </main>
   );
 }
