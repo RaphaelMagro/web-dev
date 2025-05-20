@@ -1,5 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Footer from "../_components/footer";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function NextPage() {
   return (
@@ -30,7 +37,7 @@ export default function NextPage() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 bg-gray-500 px-4 pt-5">
+        <div className="flex-1 bg-white px-4 pt-5">
           {/* Latest Announcements Title */}
           <h2 className="mt-8 text-center text-4xl font-bold text-white [text-shadow:_2px_2px_4px_#000000]">
             Latest Announcements!
@@ -196,6 +203,374 @@ export default function NextPage() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="bg-gray-500 px-4 py-16">
+        <h2 className="mb-8 text-center text-4xl font-bold text-white">
+          Barangay Facility
+        </h2>
+        <div className="mx-auto max-w-7xl">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000 }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            className="h-[400px]"
+          >
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery13.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery14.jpg"
+                  alt="Gallery Image 2"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery3.jpg"
+                  alt="Gallery Image 3"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery4.jpg"
+                  alt="Gallery Image 4"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery5.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery6.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery7.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery8.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery9.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery10.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery11.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery12.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery2.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery1.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery15.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/gallery16.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+        <h2 className="mt-8 mb-8 text-center text-4xl font-bold text-white">
+          Barangay's Recent Community Service
+        </h2>
+        <div className="mx-auto max-w-7xl">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000 }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            className="h-[400px]"
+          >
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery1.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery2.jpg"
+                  alt="Gallery Image 2"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery3.jpg"
+                  alt="Gallery Image 3"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery4.jpg"
+                  alt="Gallery Image 4"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery5.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery6.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery7.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery8.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery9.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery10.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery11.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery12.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery2.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery1.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery15.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative h-full w-full">
+                <Image
+                  src="/secgallery16.jpg"
+                  alt="Gallery Image 1"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
       <Footer />
